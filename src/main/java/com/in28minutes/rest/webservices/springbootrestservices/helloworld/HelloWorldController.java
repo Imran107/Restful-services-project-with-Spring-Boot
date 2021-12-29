@@ -4,6 +4,8 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContext;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +35,10 @@ public class HelloWorldController {
 	
 	@RequestMapping(method = RequestMethod.GET, path="/good-morning-internationalized")
 	public String goodMorningInternationalized(
-			@RequestHeader(name="Accept-Language", required=false) Locale locale
+			//@RequestHeader(name="Accept-Language", required=false) Locale locale
 			){
 		return messageResource.getMessage("good.morning.message", 
-				null, "Default Message", locale);
+				null, "Default Message", LocaleContextHolder.getLocale());
 	}
 
 }
