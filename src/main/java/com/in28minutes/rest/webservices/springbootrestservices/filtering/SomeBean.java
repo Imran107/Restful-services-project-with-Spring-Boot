@@ -2,15 +2,15 @@ package com.in28minutes.rest.webservices.springbootrestservices.filtering;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
+@JsonIgnoreProperties(value={"field1", "field2"})
 public class SomeBean {
 	
 	private String field1;
 	
 	private String field2;
 	
-	@JsonIgnore
 	private String field3;
 
 	public SomeBean(String field1, String field2, String field3) {
